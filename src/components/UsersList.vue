@@ -1,7 +1,8 @@
 <template>
     <div class="list">
         <ul>
-            <li v-for="user in getUsers" v-bind:key="user.id" v-on:click="onClickItem(user.id)">{{ user.name}} - {{ user.name }} - {{ user.login }}</li>
+            <ol v-for="user in getUsers" v-bind:key="user.id"
+v-on:click="onClickItem(user.id)">{{ user.id}} - {{ user.login }} - {{ user.url }}</ol>
         </ul>
     </div>
 </template>
@@ -26,6 +27,9 @@ export default{
 
 <style>
 .list{
-
+    text-align:left;
+}
+.list ol{
+    cursor:pointer;
 }
 </style>

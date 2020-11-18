@@ -23,6 +23,6 @@ export default{
 
 <style>
 .serach{
-
+    width:600px;
 }
 </style>

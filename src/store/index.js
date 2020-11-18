@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import Axios from 'axios';
 
 Vue.use(Vuex);
 
@@ -8,9 +9,9 @@ export default new Vuex.Store({
       currentUser: {},
       searchString: '',
       users: [
-        {id: 1, name: 'name', login: 'login'},
-        {id: 2, name: 'name1', login: 'login1'},
-        {id: 3, name: 'name3', login: 'login3'}
+        {id: 1, url: 'name', login: 'login'},
+        {id: 2, url: 'name1', login: 'login1'},
+        {id: 3, url: 'name3', login: 'login3'}
       ]
     },
     mutations: {
@@ -28,9 +29,20 @@ export default new Vuex.Store({
             }else{
                 this.state.currentUser = this.state.users[0];
             }
+        },
+        setUsers(state, users){
+            this.state.users = users;
         }
     },
     actions: {
+        async serverSync(context) {
+            try {
+                const {data} = await Axios.get('https://api.github.com/users');
+                context.commit('setUsers', data);
+            } catch (e) {
+                console.log(e);
+            }
+        }
     },
     modules: {
     },
@@ -40,13 +52,6 @@ export default new Vuex.Store({
         },
         getUsersByLogin: state => login => {
             return  state.users.filter(user => (user.login.indexOf(login)) !== -1);
-//                function(user){
-//                    if(user.login === login){
-//                        return true;
-//                    }
-//                }
-//            //    user => (user.login.indexOf( login ) !== -1)
- //           ); 
         }
     }
 });

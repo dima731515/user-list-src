@@ -1,6 +1,7 @@
 <template>
     <div class="detail">
-        {{ getUser.name }}
+        <h2>{{ getUser.login }}</h2>
+        <!--<img :src="getUser.avatar_url" :alt="getUser.avatar_url">-->
     </div>
 </template>
 <script>
