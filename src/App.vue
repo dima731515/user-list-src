@@ -23,7 +23,6 @@ import SyncButton from './components/SyncButton.vue'
 export default {
   name: 'App',
   components: {
-//    HelloWorld,
     UsersList,
     UserDetail, 
     UserSearch, 
