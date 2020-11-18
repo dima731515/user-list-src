@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<!--    <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <UserSearch/>
+    <UsersList/>
+    <UserDetail/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import HelloWorld from './components/HelloWorld.vue'
+import UsersList from './components/UsersList.vue'
+import UserDetail from './components/UserDetail.vue'
+import UserSearch from './components/UserSearch.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+//    HelloWorld,
+    UsersList,
+    UserDetail, 
+    UserSearch 
   }
 }
 </script>
